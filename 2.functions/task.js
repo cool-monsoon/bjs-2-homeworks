@@ -28,7 +28,7 @@ function worker(arr) {
 }
 
 function makeWork(arrOfArr, func) {
-  let max = 0;               //ПОЧЕМУ? 
+  let max = 0;
   let result;
 
   for (let i = 0; i < arrOfArr.length; i++) {
