@@ -1,10 +1,11 @@
 //Задача №1
 
 function parseCount(arg) {
-	if (isNaN(Number.parseInt(arg))) {
+	let number = Number.parseInt(arg);
+	if (isNaN(number)) {
 		throw new Error("Невалидное значение");
 	}
-	return Number.parseInt(arg);
+	return number;
 }
 
 function validateCount(arg) {
@@ -22,7 +23,7 @@ class Triangle {
 		this.b = b;
 		this.c = c;
 
-		if ((this.a + this.b) < this.c || (this.a + this.c) < this.b || (this.b + this.c) < this.a) {
+		if ((a + b) < c || (a + c) < b || (b + c) < a) {
 			throw new Error("Треугольник с такими сторонами не существует");
 		}
 	}
@@ -32,15 +33,14 @@ class Triangle {
 	}
 
 	getArea() {
-		let p = (this.a + this.b + this.c) / 2;
+		let p = this.getPerimeter() / 2;
 		return +(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c))).toFixed(3);
 	}
 }
 
 function getTriangle(a, b, c) {
 	try {
-		let triangle1 = new Triangle(a, b, c);
-		return triangle1;
+		return new Triangle(a, b, c);		 
 	}
 	catch (error) {
 		return {
